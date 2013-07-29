@@ -1,0 +1,73 @@
+<script>
+$(function(){
+    $('textarea').keypress(function(e) {
+        if (e.keyCode == 13 && !e.shiftKey) {
+            e.preventDefault();
+            var frm = this.form.submit();
+            $.ajax({
+                url: frm.attr(),
+                data: frm.serialize(),
+                success: {},
+                dataType: json
+            });
+        }
+    });
+
+});
+
+function updateCountdown() {
+    // 200 is the max message length
+    var remaining = 200 - jQuery('#slide_content').val().length;
+    jQuery('.countdown').text(remaining + ' characters remaining');
+}
+
+jQuery(document).ready(function($) {
+    updateCountdown();
+    $('#slide_content').change(updateCountdown);
+    $('#slide_content').keyup(updateCountdown);
+});
+</script>
+
+<div class="slide-box">
+	<div class="slide-unit">
+		<%= best_in_place @status, :content, :html_attrs => { :maxlength => 200 }, :activator => "#activator" %>
+	</div>
+</div>
+
+<div class="slide-menu">
+<!--<%= link_to "Edit", "#", id: "activator" if current_user.statuses.include?(@status) %>-->
+<%= link_to "Edit", edit_status_path(@status) %>
+<%= link_to "Delete", status_path(@status), method: :delete, data: { confirm: "Are you sure you want to delete this status?"} if current_user.statuses.include?(@status) %>
+</div>
+
+<div class="container">
+	<ul id="slides" data-update-url="<%= sort_slides_url %>">
+<% @status.slides.each do |slide| %>
+  <%= content_tag_for :li, slide do %>
+<span class="handle">|||||</span>
+<div class="slide-box">
+  <div class="slide-unit">
+          <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 }, :activator => "#activator-#{slide.id}", :type => :textarea, :ok_button => 'Done', :nil => '&nbsp;' %>
+    </div>
+</div>
+    <div class="slide-menu">
+  <!--<%= link_to "Edit", "#", id: "activator-#{slide.id}" if current_user.statuses.include?(@status) %>-->
+  <%= link_to "Edit", edit_status_slide_path(@status,slide) if current_user.statuses.include?(@status) %>
+  <%= link_to 'Delete', [slide.status, slide],
+               :confirm => 'Are you sure?',
+               :method => :delete if current_user.statuses.include?(@status) %>
+    </div>
+  <% end %>
+<% end %>
+</ul>
+<a id="form"></a>
+<p>
+<%= render "slides/form" if current_user.statuses.include?(@status) %>
+</p>
+<% if @status.publishes.length == 0 %>
+<%= form_for([@status, @status.publishes.build]) do |f| %>
+   		<%= f.submit "Publish", class: "btn btn-info" %>
+	<% end %>
+<% else %>
+	<%= link_to 'View', status_publishes_path(@status), class: "btn btn-info"  %>
+<% end %>

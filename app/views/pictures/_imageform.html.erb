@@ -1,0 +1,16 @@
+<% @slide.pictures.each do |picture| %>
+<%= image_tag picture.image_url(:thumb) if picture.image? %>
+<%= link_to 'Delete', [picture.slide, picture],
+               :confirm => 'Are you sure?',
+               :method => :delete if current_user.statuses.include?(@status) %>
+<% end %>
+<% if @slide.pictures.length == 0 %>
+      <p>Add an image:</p>
+        <%= form_for([@slide, @slide.pictures.build]) do |f| %>
+      <p>
+      <%= f.file_field :image %><br />
+      </p>
+      <%= f.submit "Upload" %>
+    </p>
+  <% end %>  
+<% end %>

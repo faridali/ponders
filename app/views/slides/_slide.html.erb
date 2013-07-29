@@ -1,0 +1,17 @@
+<div class="slide-box">
+	<div class="slide-unit">
+		<li id="slide_<%= slide.id %>">
+			<span class="handle">[drag]</span>
+		 <p>
+		  <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 }, :activator => "#activator-#{slide.id}", :type => :textarea, :ok_button => 'Save' %>
+		</p>
+		</li>
+	</div>
+</div>
+
+<div class="slide-menu">
+  <%= link_to "Edit", "#", id: "activator-#{slide.id}" if current_user.statuses.include?(@status) %>
+  <%= link_to 'Delete', [slide.status, slide],
+               :confirm => 'Are you sure?',
+               :method => :delete if current_user.statuses.include?(@status) %>
+</div>
