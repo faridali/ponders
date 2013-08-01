@@ -14,8 +14,10 @@
 <% @status.slides.each do |slide| %>
 	<div class="slide-box">
 		<div class="slide-unit">
-			<div id="slide_<%= slide.id %>">
-			 	<%= image_tag slide.image_url(:thumb).to_s if slide.image? %>
+			<div id="slide_<%= slide.id %>">    
+					<% slide.pictures.each do |picture| %>    
+					<%= image_tag picture.image_url(:thumb) if picture.image? %>
+					<% end %>
 				<%= slide.content %>
 			</div>
 		</div>

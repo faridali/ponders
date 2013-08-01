@@ -1,7 +1,5 @@
 <%= render 'pictures/imageform' %>
 <br><br>
-<strong>Edit slide:</strong>
-
 <%= form_for([@status,@slide],:url=>status_slide_path, :method => :put) do |f| %>
    <div class="field" >
     <%= f.text_area :content, maxlength: 200 %>
