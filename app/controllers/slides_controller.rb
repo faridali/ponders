@@ -26,6 +26,12 @@ before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy]
     redirect_to status_path(@status)
   end
 
+    def delimg
+    @slide = Slide.find(params[:slide_id])
+    @slide.remove_image!
+    redirect_to :back
+  end
+
   def edit
     @status = Status.find(params[:status_id])
     @slide = @status.slides.find(params[:id])

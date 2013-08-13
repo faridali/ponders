@@ -27,6 +27,10 @@ end
 
   resources :slides, :status => { :sort => :post }
 
+  resources :slides do
+    match 'delimg', :to => 'slides#delimg'
+  end
+
   resources :statuses
   get 'feed', to: 'statuses#index', as: :feed
   root to: 'statuses#index'

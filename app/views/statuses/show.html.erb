@@ -47,9 +47,7 @@ jQuery(document).ready(function($) {
 <span class="handle">|||||</span>
 <div class="slide-box">
   <div class="slide-unit">
-<% slide.pictures.each do |picture| %>    
-<%= image_tag picture.image_url(:thumb) if picture.image? %>
-<% end %>
+<%= image_tag slide.image_url(:thumb) if slide.image? %>
           <%= slide.content %>
     </div>
 </div>

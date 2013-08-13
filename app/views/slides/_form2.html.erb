@@ -1,9 +1,13 @@
-<%= render 'pictures/imageform' %>
+<%= image_tag @slide.image_url(:thumb) if @slide.image? %>
+<%= link_to 'Delete', slide_delimg_path(@slide) if @slide.image? %>
 <br><br>
-<%= form_for([@status,@slide],:url=>status_slide_path, :method => :put) do |f| %>
+<%= form_for([@status,@slide],:url=>status_slide_path, :method => :put, :html => {:multipart => true}) do |f| %>
    <div class="field" >
     <%= f.text_area :content, maxlength: 200 %>
   </div>
+  <p>
+  <%= f.file_field :image if !@slide.image? %>
+</p>
     <%= f.submit "Update", class: "btn btn-info" %>
     <%= link_to "Cancel","javascript:history.back()", class: "btn btn-info" %>
     <span class="countdown"></span>

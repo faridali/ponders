@@ -13,6 +13,12 @@ before_filter :authenticate_user!, only: [:create, :destroy]
     redirect_to :back
   end
 
+  def new
+    @slide = Slide.find(params[:slide_id])
+    @picture = @slide.pictures.build(params[:picture])
+    redirect_to :back
+  end
+
   def show
   @status = Status.find(params[:status_id])
   @slide = Slide.find(params[:status_id])

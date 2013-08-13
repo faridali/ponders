@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726204023) do
+ActiveRecord::Schema.define(:version => 20130813003655) do
 
   create_table "pictures", :force => true do |t|
     t.string   "image"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130726204023) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "position"
+    t.string   "image"
   end
 
   add_index "slides", ["status_id"], :name => "index_slides_on_status_id"
