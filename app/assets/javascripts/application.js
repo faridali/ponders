@@ -11,11 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery.ui.all 
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.purr
+//= require jquery.facebox
 //= require best_in_place
 //= require_tree .
 

@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.facebox
  *= require_tree .
  */
 
@@ -42,6 +43,7 @@ width: 400px;
 height: 200px;
 border: 1px solid;
 border-color: rgb(202, 202, 202);
+border-radius: 7px;
 }
 
 div.slide-unit 
