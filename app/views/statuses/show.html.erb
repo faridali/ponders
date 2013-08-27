@@ -30,7 +30,7 @@ jQuery(document).ready(function($) {
 
 <div class="slide-box">
 	<div class="slide-unit">
-		<%= best_in_place @status, :content, :html_attrs => { :maxlength => 200 }, :activator => "#activator" %>
+		<%= best_in_place @status, :content, :html_attrs => { :maxlength => 200 } %>
 	</div>
 </div>
 
@@ -39,7 +39,6 @@ jQuery(document).ready(function($) {
 <%= link_to "Edit", edit_status_path(@status) %>
 <%= link_to "Delete", status_path(@status), method: :delete, data: { confirm: "Are you sure you want to delete this status?"} if current_user.statuses.include?(@status) %>
 </div>
-
 <div class="container">
 	<ul id="slides" data-update-url="<%= sort_slides_url %>">
 <% @status.slides.each do |slide| %>
@@ -48,16 +47,29 @@ jQuery(document).ready(function($) {
 <div class="slide-box">
   <div class="slide-unit">
 <%= image_tag slide.image_url(:thumb) if slide.image? %>
-          <%= slide.content %>
+           <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 } %>
     </div>
 </div>
     <div class="slide-menu">
   <!--<%= link_to "Edit", "#", id: "activator-#{slide.id}" if current_user.statuses.include?(@status) %>-->
-  <%= link_to "Edit", edit_status_slide_path(@status,slide), 'data_toggle' =>  "modal" if current_user.statuses.include?(@status) %>
+  <%= link_to "Edit", edit_status_slide_path(@status,slide) if current_user.statuses.include?(@status) %>
   <%= link_to 'Delete', [slide.status, slide],
                :confirm => 'Are you sure?',
                :method => :delete if current_user.statuses.include?(@status) %>
     </div>
+
+<div class="modal hide fade" id="modal-window">
+  <div class="modal-header">
+    <a href="#" class="close">×</a>
+    <h3>Loading...</h3>
+  </div>
+  <div class="modal-body center">
+      <%= image_tag "loading.gif" %>
+  </div>
+  <div class="modal-footer">&nbsp;</div>
+</div>
+
+
   <% end %>
 <% end %>
 </ul>
