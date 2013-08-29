@@ -47,7 +47,7 @@ jQuery(document).ready(function($) {
 <div class="slide-box">
   <div class="slide-unit">
 <%= render :partial => "slides/form2", :locals => { :slide => slide } %>
-<%= image_tag slide.image_url(:thumb) if slide.image? %>
+<%= image_tag slide.image_url(:thumb) if slide.image? %><br>
            <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 } %>
     </div>
 </div>

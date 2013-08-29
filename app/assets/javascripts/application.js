@@ -16,6 +16,7 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.purr
+//= require jasny-bootstrap
 //= require jquery.facebox
 //= require best_in_place
 //= require_tree .

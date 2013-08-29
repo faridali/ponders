@@ -58,6 +58,7 @@ GEM
       thor (>= 0.14, < 2.0)
     hike (1.2.2)
     i18n (0.6.4)
+    jasny_bootstrap_extension_rails (0.0.1)
     journey (1.0.4)
     jquery-fileupload-rails (0.4.1)
       actionpack (>= 3.1)
@@ -148,6 +149,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   facebox-rails
+  jasny_bootstrap_extension_rails
   jquery-fileupload-rails
   jquery-rails
   jquery-ui-rails
