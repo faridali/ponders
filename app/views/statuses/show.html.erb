@@ -46,6 +46,7 @@ jQuery(document).ready(function($) {
 <span class="handle">|||||</span>
 <div class="slide-box">
   <div class="slide-unit">
+<%= render :partial => "slides/form2", :locals => { :slide => slide } %>
 <%= image_tag slide.image_url(:thumb) if slide.image? %>
            <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 } %>
     </div>
@@ -57,21 +58,9 @@ jQuery(document).ready(function($) {
                :confirm => 'Are you sure?',
                :method => :delete if current_user.statuses.include?(@status) %>
     </div>
-
-<div class="modal hide fade" id="modal-window">
-  <div class="modal-header">
-    <a href="#" class="close">×</a>
-    <h3>Loading...</h3>
-  </div>
-  <div class="modal-body center">
-      <%= image_tag "loading.gif" %>
-  </div>
-  <div class="modal-footer">&nbsp;</div>
-</div>
-
-
   <% end %>
 <% end %>
+
 </ul>
 <a id="form"></a>
 <p>
