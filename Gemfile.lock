@@ -56,6 +56,8 @@ GEM
     facebox-rails (0.2.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    flatstrap-rails (0.3.0.2)
+      twitter-bootstrap-rails (~> 2.2.6)
     hike (1.2.2)
     i18n (0.6.4)
     jasny_bootstrap_extension_rails (0.0.1)
@@ -132,6 +134,11 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.2.8)
+      actionpack (>= 3.1)
+      execjs
+      rails (>= 3.1)
+      railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
@@ -149,6 +156,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   facebox-rails
+  flatstrap-rails
   jasny_bootstrap_extension_rails
   jquery-fileupload-rails
   jquery-rails

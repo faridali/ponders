@@ -9,11 +9,20 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jasny-bootstrap
- *= require jasny-bootstrap-responsive
  *= require_tree .
  */
 
+
+.well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid {
+  -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+    border-collapse: collapse !important;
+    background-image: none !important;
+}
 
 .alert {
 	margin-top: 10px;
@@ -23,7 +32,7 @@
 
 .countdown {
   display: inline;
-  padding-left: 210px;
+  padding-left: 230px;
   color: rgb(167, 167, 167);
 }
 
@@ -59,9 +68,8 @@ div.slide-unit
 }
 
 .slide-menu{
-	padding-left: 413px;
-	margin-top: -30px;
-	padding-bottom: 40px;
+	padding-left: 474px;
+	padding-bottom: 0px;
 }
 
 .glyphw-white{
@@ -83,4 +91,10 @@ div.slide-unit
 ul#slides {
   list-style-type: none;
   margin-left: 0;
+}
+
+.add_image {
+  padding-top: 90px;
+  margin-bottom: -123px;
+  margin-left: -420px;
 }

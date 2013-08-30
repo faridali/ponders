@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PonderUp</title>
+  <title>ponders</title>
   <%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -11,24 +11,32 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a href="#" class="brand">PonderUp</a>
-				<ul class="nav">
-					<li><%= link_to "All Statuses", feed_path %></li>
-				</ul>
-				<ul class="nav pull-right">
-
-					<li><h><%= link_to new_status_path, class: "btn btn-success" do%>
-				<i class="icon-plus glyphw-white"></i> New Presentation
-				<% end %>
-					</h></li>
+				<a href="#" class="btn btn-info">ponders</a>
+				 <div class="btn-group">
+  <button class="btn dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  	</li>
 					<% if user_signed_in? %>
 						<li><%= link_to current_user.full_name, user_profile_path(current_user.profile_name) %></li>
-						<li><%= link_to "Account", edit_user_registration_path %></li>
+						<li><%= link_to "Account Setting", edit_user_registration_path %></li>
 						<li><%= link_to "Log Out", logout_path %></li>
 					<% else %>
 						<li><%= link_to "Register", register_path %></li>
 						<li><%= link_to "Log in", login_path %></li>
 					<% end %>
+  </ul>
+</div>
+				<ul class="nav">
+			<!-- 		<li><%= link_to "All Statuses", feed_path %></li> -->
+				</ul>
+				<ul class="nav pull-right">
+
+					<li><h><%= link_to new_status_path, class: "btn btn-success" do%>
+				<i class="icon-plus glyphw-white"></i> New Presentaion
+				<% end %>
+					</h></li>
 				</ul>
 			</div>
 		</div>
