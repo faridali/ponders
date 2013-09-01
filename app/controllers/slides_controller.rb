@@ -1,5 +1,5 @@
 class SlidesController < ApplicationController
-before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy]
+before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy, :delimg]
 
     def index
       @slides = Slide.order("position")
@@ -26,7 +26,7 @@ before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy]
     redirect_to status_path(@status)
   end
 
-    def delimg
+  def delimg
     @slide = Slide.find(params[:slide_id])
     @slide.remove_image!
     redirect_to :back

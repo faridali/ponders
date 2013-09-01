@@ -31,6 +31,10 @@ end
     match 'delimg', :to => 'slides#delimg'
   end
 
+  resources :statuses do
+    match 'delimg', :to => 'statuses#delimg'
+  end
+
   resources :statuses
   get 'feed', to: 'statuses#index', as: :feed
   root to: 'statuses#index'

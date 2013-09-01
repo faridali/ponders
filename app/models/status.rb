@@ -1,5 +1,5 @@
 class Status < ActiveRecord::Base
-  attr_accessible :content, :user_id, :slides_attributes
+  attr_accessible :content, :user_id, :slides_attributes, :image, :remove_image
   belongs_to :user
 
   validates :content, presence: true,
@@ -11,5 +11,7 @@ class Status < ActiveRecord::Base
   has_many :publishes, :dependent => :destroy, :order => "created_at DESC"
 
   accepts_nested_attributes_for :slides
+
+  mount_uploader :image, ImageUploader
 
 end

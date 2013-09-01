@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
+before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :delimg]
 
   # GET /statuses
   # GET /statuses.json
@@ -10,6 +10,12 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
       format.html # index.html.erb
       format.json { render json: @statuses }
     end
+  end
+
+   def delimg
+    @status = Status.find(params[:status_id])
+    @status.remove_image!
+    redirect_to :back
   end
 
   # GET /statuses/1
