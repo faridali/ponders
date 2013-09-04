@@ -19,6 +19,10 @@ before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy, :de
     end
    end
 
+   def image_changed?
+    true
+   end
+
    	  def destroy
     @status = Status.find(params[:status_id])
     @slide = @status.slides.find(params[:id])

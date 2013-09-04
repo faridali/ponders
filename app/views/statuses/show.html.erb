@@ -11,7 +11,7 @@
 <%= link_to 'x', status_delimg_path(@status), data: { confirm: "Are you sure you want to delete this image?"} if @status.image? %>
 </p>
 <%= image_tag @status.image_url(:thumb) if @status.image? %><br>
-<b><%= best_in_place @status, :content, :html_attrs => { :maxlength => 200 } %></b>
+<p><b><%= best_in_place @status, :content, :html_attrs => { :maxlength => 200 } %></b></p>
 <div class="add_image">
   <%= render :partial => "statuses/form2", :locals => { :status => @status } %>
 </div>

@@ -12,6 +12,10 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :delimg
     end
   end
 
+  def image_changed?
+    true
+  end
+
    def delimg
     @status = Status.find(params[:status_id])
     @status.remove_image!
