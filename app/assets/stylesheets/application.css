@@ -49,7 +49,7 @@ color: inherit;
 -moz-border-radius: 6px;
 border-radius: 0px;
 text-align:center;
-width: 400px;
+width: 500px;
 height: 200px;
 border: 1px solid;
 border-color: rgb(202, 202, 202);
@@ -96,5 +96,14 @@ ul#slides {
 .add_image {
   padding-top: 90px;
   margin-bottom: -123px;
-  margin-left: -420px;
+}
+
+p { 
+ width: 23em;
+ word-wrap: break-word;
+}
+
+#content {
+    width: 500px;
+    margin: 0 auto;
 }
