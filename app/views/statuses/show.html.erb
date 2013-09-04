@@ -2,7 +2,7 @@
 <div class="slide-menu">
 <!--<%= link_to "Edit", "#", id: "activator" if current_user.statuses.include?(@status) %>-->
 <!---<%= link_to "Edit", edit_status_path(@status) %>-->
-<%= link_to "Delete Presentation", status_path(@status), method: :delete, data: { confirm: "Are you sure you want to delete this status?"} if current_user.statuses.include?(@status) %>
+<%= link_to "Delete Presentation", status_path(@status), method: :delete, data: { confirm: "Are you sure you want to delete this presentation?"} if current_user.statuses.include?(@status) %>
 </div>
 <div class="slide-box">
 <div class="slide-unit">

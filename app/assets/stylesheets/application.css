@@ -32,14 +32,13 @@
 
 .countdown {
   display: inline;
-  padding-left: 230px;
+  padding-left: 265px;
   color: rgb(167, 167, 167);
 }
 
 /* slides */
 
 .slide-unit {
-padding: 40px;
 font-style: h2;
 font-size: 18px;
 font-weight: 300;
@@ -49,11 +48,12 @@ color: inherit;
 -moz-border-radius: 6px;
 border-radius: 0px;
 text-align:center;
-width: 500px;
-height: 200px;
+width: 568px;
+height: 568px;
 border: 1px solid;
 border-color: rgb(202, 202, 202);
 border-radius: 7px;
+padding-bottom: 40px;
 }
 
 div.slide-unit 
@@ -64,12 +64,10 @@ div.slide-unit
 }
 
 .slide-box {
-	padding-bottom: 30px;
 }
 
 .slide-menu{
-	padding-left: 474px;
-	padding-bottom: 0px;
+  padding-top: 40px;
 }
 
 .glyphw-white{
@@ -94,8 +92,6 @@ ul#slides {
 }
 
 .add_image {
-  padding-top: 90px;
-  margin-bottom: -123px;
 }
 
 p { 
@@ -104,6 +100,6 @@ p {
 }
 
 #content {
-    width: 500px;
+    width: 570px;
     margin: 0 auto;
 }
