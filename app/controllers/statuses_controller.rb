@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :delimg]
+before_filter :authenticate_user!, only: [:new, :show, :create, :edit, :update, :delimg]
 
   # GET /statuses
   # GET /statuses.json
@@ -11,6 +11,7 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :delimg
       format.json { render json: @statuses }
     end
   end
+
 
   def image_changed?
     true
@@ -27,15 +28,16 @@ before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :delimg
   def show
     @status = Status.find(params[:id])
     respond_to do |format|
-        if current_user
+     if current_user.id == @status.user.id
       format.html # show.html.erb
       format.json { render json: @status }
       else
-        format.html { redirect_to status_path(@status) }
+        format.html { redirect_to root_path }
         format.json { render json: @status.errors, status: :unprocessable_entity }
   end
 end
 end
+
 
   # GET /statuses/new
   # GET /statuses/new.json
@@ -100,4 +102,5 @@ end
       format.json { head :no_content }
     end
   end
+
 end
