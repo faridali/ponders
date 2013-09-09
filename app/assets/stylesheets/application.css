@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.fileupload-ui
  *= require_tree .
  */
 
@@ -49,7 +50,7 @@ color: inherit;
 border-radius: 0px;
 text-align:center;
 width: 568px;
-height: 568px;
+height: 368px;
 border: 1px solid;
 border-color: rgb(202, 202, 202);
 border-radius: 7px;

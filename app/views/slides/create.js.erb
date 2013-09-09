@@ -1,4 +1,4 @@
-<% if @slide.new? %>
+<% if @slide.new_record? %>
   alert("Failed to upload image: <%= j @slide.errors.full_messages.join(', ').html_safe %>");
 <% else %>
   $("#slides").append("<%= j render(@slide) %>");

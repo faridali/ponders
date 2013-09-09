@@ -8,15 +8,6 @@ before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy, :de
 	  def create
     @status = Status.find(params[:status_id])
     @slide = @status.slides.create(params[:slide])
-       respond_to do |format|
-      if @slide.save
-        format.html { redirect_to (status_path(@status, :anchor => "form")) }
-        format.json { render json: @status, slide: :created, location: @status }
-      else
-        format.html { redirect_to @status, alert: 'Oops! That file type cannot be uploaded. You can upload .jpg, .gif, and .png files.' }
-        format.json { render json: @slide.errors, slide: :unprocessable_entity }
-      end
-    end
    end
 
    def image_changed?
