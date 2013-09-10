@@ -25,6 +25,7 @@ before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy, :de
   def delimg
     @slide = Slide.find(params[:slide_id])
     @slide.remove_image!
+    @slide.update_column(:image, nil)
     redirect_to :back
   end
 

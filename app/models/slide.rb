@@ -17,4 +17,15 @@ class Slide < ActiveRecord::Base
   #   File.delete("#{Rails.root}/public/uploads/slide/image/#{@slide.id}/#{@image_name}")
   #   File.delete("#{Rails.root}/public/uploads/slide/image/#{@slide.id}/thumb_#{@image_name}")
   # end
+  def to_jq_upload
+    {
+      "name" => read_attribute(:image),
+      "size" => image.size,
+      "url" => image.url,
+      "thumbnail_url" => image.thumb.url,
+      "delete_url" => @slide.remove_image = true,
+      "delete_type" => "DELETE" 
+    }
+  end
+
 end
