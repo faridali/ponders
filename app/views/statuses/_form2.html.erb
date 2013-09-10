@@ -2,11 +2,13 @@
 <% if !status.image? %>
 <div class="fileupload fileupload-new" data-provides="fileupload">
   <span class="btn btn-file"><span class="fileupload-new"><i class="icon-camera glyphw"></i></span><span class="fileupload-exists">Change</span>
-  <%= f.file_field :image if !status.image? %></span>
+  <%= f.file_field :image, :onchange =>"validateFiles(this);",
+:data => {
+:max_file_size => 5.megabytes } if !status.image? %></span>
   <span class="fileupload-preview"></span>
   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a><br><br>
     <div class="fileupload-exists">
-  <%= f.submit "Upload", class: "btn btn-success" if !status.image? %>
+  <%= f.submit "Upload", class: "btn btn-success", disable_with: "Uploading..." if !status.image? %>
 	</div>
 </div>
 <% end %>
