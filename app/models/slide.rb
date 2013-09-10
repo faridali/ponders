@@ -17,5 +17,4 @@ class Slide < ActiveRecord::Base
   #   File.delete("#{Rails.root}/public/uploads/slide/image/#{@slide.id}/#{@image_name}")
   #   File.delete("#{Rails.root}/public/uploads/slide/image/#{@slide.id}/thumb_#{@image_name}")
   # end
-
 end

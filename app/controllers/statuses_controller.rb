@@ -27,6 +27,8 @@ before_filter :authenticate_user!, only: [:new, :show, :create, :edit, :update, 
   # GET /statuses/1.json
   def show
     @status = Status.find(params[:id])
+    @uploader = Slide.new.image
+    @uploader.success_action_redirect = status_url
     respond_to do |format|
      if current_user.id == @status.user.id
       format.html # show.html.erb

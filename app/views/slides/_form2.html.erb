@@ -1,5 +1,14 @@
+<div id="slideform">
 <%= form_for([@status,slide],:url=>status_slide_path(@status,slide), :method => :put, :html => {:multipart => true}) do |f| %><% if !slide.image? %>
-      <%= f.label :image, "Upload image:" %>
-      <%= f.file_field :image, name: "image[image]" %>
+<div class="fileupload fileupload-new" data-provides="fileupload">
+    <span class="btn btn-file"><span class="fileupload-new"><i class="icon-camera glyphw"></i></span><span class="fileupload-exists">Change</span>
+        <%= f.file_field :image if !slide.image? %></span>
+    <span class="fileupload-preview"></span>
+  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a><br><br>
+<div class="fileupload-exists">
+  <%= f.submit "Upload", class: "btn btn-success", disable_with: "Uploading..." if !slide.image? %>
+</div>
+</div>
 <% end %>
 <% end %>
+</div>

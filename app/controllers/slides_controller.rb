@@ -3,6 +3,7 @@ before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy, :de
 
     def index
       @slides = Slide.order("position")
+      @slide = Slide(key: params[:key])
    end
 
 	  def create
@@ -42,7 +43,7 @@ def update
     @slide = @status.slides.find(params[:id])
     @slide.update_attributes(params[:slide])
     redirect_to (status_path(@status, :anchor => "slide_#{(@slide.id)}"))
-  end
+end
 
      def sort
     params[:slide].each_with_index do |id, index|

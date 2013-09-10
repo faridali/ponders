@@ -1,5 +1,5 @@
-<% if @slide.new_record? %>
-  alert("Failed to upload image: <%= j @slide.errors.full_messages.join(', ').html_safe %>");
-<% else %>
-  $("#slides").append("<%= j render(@slide) %>");
-<% end %>
+$("#slides").append("<%= j render(@slide) %>");
+$( '#new_slide' ).each(function(){
+    this.reset();
+});
+window.scrollTo(0,document.body.scrollHeight);
