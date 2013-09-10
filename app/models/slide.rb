@@ -13,19 +13,15 @@ class Slide < ActiveRecord::Base
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
+  private
+ 
+  def image_size_validation
+    errors[:image] << "should be less than 5MB" if image.size > 5.megabytes
+  end
+
   # def remove_img
   #   File.delete("#{Rails.root}/public/uploads/slide/image/#{@slide.id}/#{@image_name}")
   #   File.delete("#{Rails.root}/public/uploads/slide/image/#{@slide.id}/thumb_#{@image_name}")
   # end
-  def to_jq_upload
-    {
-      "name" => read_attribute(:image),
-      "size" => image.size,
-      "url" => image.url,
-      "thumbnail_url" => image.thumb.url,
-      "delete_url" => @slide.remove_image = true,
-      "delete_type" => "DELETE" 
-    }
-  end
 
 end

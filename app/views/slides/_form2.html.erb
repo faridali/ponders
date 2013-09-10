@@ -1,8 +1,9 @@
-<div id="slideform">
 <%= form_for([@status,slide],:url=>status_slide_path(@status,slide), :method => :put, :html => {:multipart => true}) do |f| %><% if !slide.image? %>
 <div class="fileupload fileupload-new" data-provides="fileupload">
     <span class="btn btn-file"><span class="fileupload-new"><i class="icon-camera glyphw"></i></span><span class="fileupload-exists">Change</span>
-        <%= f.file_field :image if !slide.image? %></span>
+        <%= f.file_field :image, :onchange =>"validateFiles(this);",
+:data => {
+:max_file_size => 5.megabytes } if !slide.image? %></span>
     <span class="fileupload-preview"></span>
   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a><br><br>
 <div class="fileupload-exists">
@@ -11,4 +12,33 @@
 </div>
 <% end %>
 <% end %>
-</div>
+
+<script>
+
+function validateFiles(inputFile) {
+  var maxExceededMessage = "This file exceeds the maximum allowed file size (5 MB)";
+  var extErrorMessage = "Only image file with extension: .jpg, .jpeg, .gif or .png is allowed";
+  var allowedExtension = ["jpg", "jpeg", "gif", "png"];
+ 
+  var extName;
+  var maxFileSize = $(inputFile).data('max-file-size');
+  var sizeExceeded = false;
+  var extError = false;
+ 
+  $.each(inputFile.files, function() {
+    if (this.size && maxFileSize && this.size > parseInt(maxFileSize)) {sizeExceeded=true;};
+    extName = this.name.split('.').pop();
+    if ($.inArray(extName, allowedExtension) == -1) {extError=true;};
+  });
+  if (sizeExceeded) {
+    window.alert(maxExceededMessage);
+    $(inputFile).val('');
+  };
+ 
+  if (extError) {
+    window.alert(extErrorMessage);
+    $(inputFile).val('');
+  };
+}
+
+</script>
