@@ -102,3 +102,11 @@ p {
     width: 570px;
     margin: 0 auto;
 }
+
+div.pointer {
+  cursor: pointer;
+}
+
+.btn-file { border-color: #fff; background-color: #fff;
+
+.btn-file:hover { border-color: #fff; background-color: #fff; }

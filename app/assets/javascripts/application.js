@@ -111,3 +111,7 @@ function validateFiles(inputFile) {
   };
 }
 
+$(document).ready(function () {
+  $('c').tooltip();
+});
+
