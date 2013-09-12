@@ -1,29 +1,24 @@
 <%= content_tag_for :li, slide do %>
+<div class="slide-box">
 <div class="slide-menu">
-  <!--<%= link_to "Edit", "#", id: "activator-#{slide.id}" if current_user.statuses.include?(@status) %>-->
-<!--   <%= link_to "Edit", edit_status_slide_path(@status,slide) if current_user.statuses.include?(@status) %> -->
- <%= link_to 'x', [slide.status, slide], :class => "thin",
+    <%= link_to 'x', [slide.status, slide], :class => "btn thin",
                :confirm => 'Are you sure you want to delete this slide?',
                :method => :delete, :remote => true %>
-    </div>
-<div class="slide-box">
-<span class="handle">
-<div class="slide-unit">
-</span>
-<div class="slide-menu">
-<%= link_to 'x', slide_delimg_path(slide), :class => "thin", data: { confirm: "Are you sure you want to delete this image?"} if slide.image? %>
-</div>
-<%= image_tag slide.image_url(:thumb) if slide.image? %><br>
-<c title="Edit" rel="tooltip">
+      <div class="add_image">
+  <%= render :partial => "statuses/form2", :locals => { :status => @status } %>
+      </div>
+  </div>
+  <span class="handle">
+    <div class="slide-unit">
+        <%= link_to 'x', slide_delimg_path(slide), data: { confirm: "Are you sure you want to delete this image?"} if slide.image? %>
+        <%= image_tag slide.image_url(:thumb) if slide.image? %><br>
+        <c title="Edit" rel="tooltip">
         <p>
           <div class="pointer">
                      <%= best_in_place slide, :content, :path => [@status, slide], :html_attrs => { :maxlength => 200 } %>
           </div>
         </p>
-</c>
-<div class="add_image">
-  <%= render :partial => "slides/form2", :locals => { :slide => slide } %>
-</div>
-    </div>
-</div>
+        </c>
+  </div>
+  </span>
 <% end %>

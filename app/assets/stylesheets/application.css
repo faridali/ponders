@@ -50,7 +50,7 @@ color: inherit;
 border-radius: 0px;
 text-align:center;
 width: 568px;
-height: 368px;
+height: 310px;
 border-color: rgb(202, 202, 202);
   padding:1.5rem;
   box-shadow:0 1px 2px #aaa;
@@ -61,14 +61,16 @@ div.slide-unit
 {
 	min-height: 10em;
     display: table-cell;
-    vertical-align: middle
+    vertical-align: middle;
 }
 
 .slide-box {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .slide-menu{
-  padding-top: 40px;
+position: absolute;
 }
 
 .glyphw-white{
@@ -93,11 +95,15 @@ ul#slides {
 }
 
 .add_image {
+float: right;
+margin-left: 500px;
+margin-top: -28px;
 }
 
 p { 
- width: 23em;
  word-wrap: break-word;
+ display: table-cell;
+ vertical-align: middle;
 }
 
 #content {
@@ -107,11 +113,10 @@ p {
 
 div.pointer {
   cursor: pointer;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
 }
-
-.btn { border-color: #fff; color: #fff; }
-
-.btn:hover { border-color: #fff; background-color: #fff; }
 
 a.thin {
   font-weight: 100;

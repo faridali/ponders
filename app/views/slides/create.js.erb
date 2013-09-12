@@ -1,5 +1,5 @@
 $("#slides").append("<%= j render(@slide) %>");
-$('#slide_<%= @slide.id %>').effect("highlight", {color: 'rgba(80, 215, 226, 0.05)'}, 700);
+$('#slide_<%= @slide.id %>').effect("highlight", {color: 'rgba(80, 215, 226, 0.1)'}, 500);
 $( '#new_slide' ).each(function(){
     this.reset();
 });
