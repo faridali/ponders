@@ -14,6 +14,7 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.purr
@@ -21,6 +22,10 @@
 //= require jquery.facebox
 //= require best_in_place
 //= require_tree .
+
+$(document).ready(function(){
+    $('c').tooltip();
+});
 
 $(document).ajaxSend(function(event, request, settings) {
   if (typeof(AUTH_TOKEN) == "undefined") return;
@@ -110,8 +115,3 @@ function validateFiles(inputFile) {
     $(inputFile).val('');
   };
 }
-
-$(document).ready(function () {
-  $('c').tooltip();
-});
-
