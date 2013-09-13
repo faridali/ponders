@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130901191732) do
+ActiveRecord::Schema.define(:version => 20130913134620) do
+
+  create_table "descriptions", :force => true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "descriptions", ["user_id"], :name => "index_descriptions_on_user_id"
 
   create_table "pictures", :force => true do |t|
     t.string   "image"

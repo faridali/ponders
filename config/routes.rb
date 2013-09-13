@@ -25,6 +25,10 @@ end
       collection { post :sort }
 end
 
+resources :users do
+  resources :descriptions
+end
+
   resources :slides, :status => { :sort => :post }
 
   resources :slides do

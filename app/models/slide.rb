@@ -3,7 +3,7 @@ class Slide < ActiveRecord::Base
 
   belongs_to :status
 
-  validates :content, length: { minimum: 0, maximum: 200 }
+  validates :content, length: { minimum: 1, maximum: 200 }
 
   acts_as_list
 

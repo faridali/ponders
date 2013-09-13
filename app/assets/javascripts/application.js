@@ -11,17 +11,15 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery.ui.all
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
-//= require jquery-fileupload/basic
-//= require jquery-fileupload/vendor/tmpl
 //= require jquery.purr
 //= require jasny-bootstrap
-//= require jquery.facebox
 //= require best_in_place
 //= require_tree .
+//= require turbolinks
 
 $(document).ready(function(){
     $('c').tooltip();
@@ -32,34 +30,6 @@ $(document).ajaxSend(function(event, request, settings) {
   // settings.data is a serialized string like "foo=bar&baz=boink" (or null)
   settings.data = settings.data || "";
   settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
-});
-
-$(function(){
-    $('textarea').keypress(function(e) {
-        if (e.keyCode == 13 && !e.shiftKey) {
-            e.preventDefault();
-            var frm = this.form.submit();
-            $.ajax({
-                url: frm.attr(),
-                data: frm.serialize(),
-                success: {},
-                dataType: json
-            });
-        }
-    });
-
-});
-
-function updateCountdown() {
-    // 200 is the max message length
-    var remaining = 200 - jQuery('#slide_content').val().length;
-    jQuery('.countdown').text(remaining + ' characters remaining');
-}
-
-jQuery(document).ready(function($) {
-    updateCountdown();
-    $('#slide_content').change(updateCountdown);
-    $('#slide_content').keyup(updateCountdown);
 });
 
 $(function(){

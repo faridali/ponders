@@ -65,7 +65,7 @@ gem 'redis'
 
 gem 'turbolinks'
 
-gem 'less-rails-bootstrap'
+gem 'jquery-turbolinks'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

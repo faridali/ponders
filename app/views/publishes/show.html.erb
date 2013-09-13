@@ -1,3 +1,4 @@
+<div id="content">
 <small>
   Created by <%= link_to @status.user.full_name, user_profile_path(@status.user.profile_name) %>
   <%= time_ago_in_words(@status.publishes.first.created_at) %> ago
@@ -20,3 +21,4 @@
 		</div>
 	</div>
 <% end %>
+</div>
