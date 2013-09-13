@@ -123,3 +123,10 @@ a.thin {
   font-size: 20px;
 }
 
+.icon-camera {
+  opacity: 0.5;
+}
+
+.btn:hover {
+    background-color: #eee;
+}

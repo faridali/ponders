@@ -7,7 +7,7 @@
     <span class="fileupload-preview"></span>
   <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a><br><br>
 <div class="fileupload-exists">
-  <%= f.submit "Upload", class: "btn btn-success", disable_with: "Uploading..." if !slide.image? %>
+  <%= f.submit "Upload", class: "btn btn-success", disable_with: "Uploading, please wait..." if !slide.image? %>
 </div>
 </div>
 <% end %>

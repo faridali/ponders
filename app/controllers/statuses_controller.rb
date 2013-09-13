@@ -20,6 +20,7 @@ before_filter :authenticate_user!, only: [:new, :show, :create, :edit, :update, 
    def delimg
     @status = Status.find(params[:status_id])
     @status.remove_image!
+    @status.update_column(:image, nil)
     redirect_to :back
   end
 
