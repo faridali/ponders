@@ -130,3 +130,9 @@ a.thin {
 .btn:hover {
     background-color: #eee;
 }
+
+.hidden
+{
+display:none;
+}
+.edit:hover .hidden{display:block;}
