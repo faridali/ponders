@@ -17,9 +17,17 @@
 //= require bootstrap
 //= require jquery.purr
 //= require jasny-bootstrap
-//= require best_in_place
 //= require_tree .
 //= require turbolinks
+
+$('.best_in_place').bind('ajax:success', function(){ this.innerHTML = this.innerHTML.replace(/\n/g, '<br />') });
+$('.best_in_place').bind('ajax:success', function(){ $(this).JQtextile('textile', this.innerHTML) });
+$('.best_in_place').bind('ajax:success', function(){ 
+    if ($(this).attr('content') == 'textarea') {
+        this.innerHTML = this.innerHTML.replace(/\r/g, '')
+    }
+});
+
 
 $(document).ready(function(){
     $('c').tooltip();

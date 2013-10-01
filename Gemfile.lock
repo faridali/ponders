@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     actionmailer (3.2.12)
       actionpack (= 3.2.12)
       mail (~> 2.4.4)
@@ -197,6 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
   acts_as_list
   best_in_place
   carrierwave

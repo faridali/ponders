@@ -43,16 +43,18 @@
 font-style: h2;
 font-size: 18px;
 font-weight: 300;
-line-height: 30px;
+
 color: inherit;
 -webkit-border-radius: 6px;
 -moz-border-radius: 6px;
 border-radius: 0px;
-text-align:center;
+/*text-align:center;*/
+white-space: pre-wrap;
 width: 568px;
+table-layout: fixed; 
 height: 310px;
 border-color: rgb(202, 202, 202);
-  padding:1.5rem;
+/*  padding:1.5rem;*/
   box-shadow:0 1px 2px #aaa;
   margin:0 1rem 1rem;
 }
@@ -101,9 +103,13 @@ margin-top: -28px;
 }
 
 p { 
- word-wrap: break-word;
  display: table-cell;
+ text-align: left;
  vertical-align: middle;
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
 #content {
@@ -136,3 +142,13 @@ a.thin {
 display:none;
 }
 .edit:hover .hidden{display:block;}
+
+textarea {
+    resize: none;
+    max-width: 450px;
+    }
+
+.best_in_place {
+display: inline-block;
+width: 100%;
+}
