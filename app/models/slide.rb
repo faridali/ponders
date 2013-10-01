@@ -1,5 +1,5 @@
 class Slide < ActiveRecord::Base
-  attr_accessible :content, :status_id, :id, :image, :remove_image, :pictures_attributes
+  attr_accessible :content, :title, :status_id, :id, :image, :remove_image, :pictures_attributes
 
   belongs_to :status
 

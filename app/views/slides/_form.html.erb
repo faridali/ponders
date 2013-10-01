@@ -1,7 +1,11 @@
 <%= form_for([@status, @status.slides.build], :html => {:multipart => true}, :remote => true) do |f| %>
   <div class="slide-field" >
-    <%= f.text_field :content, maxlength: 200, placeholder: "New slide text...", :style=>"width:300px; margin-left:24%" %>
+  	<%= f.hidden_field :title, placeholder: "Card title...", :style=>"width:300px; margin-left:24%", :value => "Add title here" %>
+    <%= f.hidden_field :content, placeholder: "Card content...", :style=>"width:300px; margin-left:24%", :value => "Add text here" %>
+    <br>
+    <%= f.submit "Add new card", class: "btn btn-info", :style=>"width:300px; margin-left:24%" %>
   </div>
+
 <!--     <%= f.file_field :image, :style=>"margin-left:84px" %> -->
-    <span class="countdown"></span>
+<!--     <span class="countdown"></span> -->
     <% end %>  

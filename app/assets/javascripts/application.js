@@ -20,12 +20,24 @@
 //= require_tree .
 //= require turbolinks
 
-$('.best_in_place').bind('ajax:success', function(){ this.innerHTML = this.innerHTML.replace(/\n/g, '<br />') });
-$('.best_in_place').bind('ajax:success', function(){ $(this).JQtextile('textile', this.innerHTML) });
-$('.best_in_place').bind('ajax:success', function(){ 
-    if ($(this).attr('content') == 'textarea') {
-        this.innerHTML = this.innerHTML.replace(/\r/g, '')
-    }
+
+$(document).delegate('#textarea', 'keydown', function(e) {
+  var keyCode = e.keyCode || e.which;
+
+  if (keyCode == 9) {
+    e.preventDefault();
+    var start = $(this).get(0).selectionStart;
+    var end = $(this).get(0).selectionEnd;
+
+    // set textarea value to: text before caret + tab + text after caret
+    $(this).val($(this).val().substring(0, start)
+                + "\t"
+                + $(this).val().substring(end));
+
+    // put caret at right position again
+    $(this).get(0).selectionStart =
+    $(this).get(0).selectionEnd = start + 1;
+  }
 });
 
 
@@ -93,3 +105,4 @@ function validateFiles(inputFile) {
     $(inputFile).val('');
   };
 }
+
