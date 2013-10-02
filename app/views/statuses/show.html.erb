@@ -34,17 +34,29 @@
       </div>
   </div>
     <div class="slide-unit">
+    <div class="pointer">
+      <div class="slide-title">
+      <b>
+                    <c title="Edit" rel="tooltip">
+                  <%=best_in_place slide, :title, :path => [@status, slide] %>
+                  </c>
+                </b>
+      </div>
+    </div>
         <%= link_to 'x', slide_delimg_path(slide), class: :"btn thin", data: { confirm: "Are you sure you want to delete this image?"} if slide.image? %>
-        <%= image_tag slide.image_url(:thumb) if slide.image? %><br>
+        <%= image_tag slide.image_url(:thumb) if slide.image? %>
           <div class="pointer">
-                <c title="Edit" rel="tooltip"><b>
-                  <%=best_in_place slide, :title, :path => [@status, slide] %></b>
+             <div class="slide-content">
             </p>
-            <p style="max-width:425px;">
-                     <%=best_in_place slide, :content, :type => "textarea", :path => [@status, slide] %>
-            </p>
+               <p style="max-width:425px; white-space:pre;">
+                <c title="Edit" rel="tooltip">
+                  <div id="textarea">
+                             <%= best_in_place slide, :content, :type => "textarea", :classes => "textarea", :path => [@status, slide], :sanitize => "true" %>
+                  </div>
                 </c>
-          </div>
+               </p>
+            </div>
+      </div>
   </div>
   </span>
   <% end %>
