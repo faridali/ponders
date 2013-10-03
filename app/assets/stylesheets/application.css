@@ -49,7 +49,7 @@ color: inherit;
 border-radius: 0px;
 /*text-align:center;*/
 width: 568px;
-height: 300px;
+height: 375px;
 border-color: rgb(202, 202, 202);
 /*  padding:1.5rem;*/
   box-shadow:0 1px 2px #aaa;
@@ -129,7 +129,6 @@ a.thin {
 }
 
 .btn:hover {
-    background-color: #eee;
 }
 
 .hidden
@@ -146,14 +145,15 @@ textarea {
 .best_in_place {
 white-space: pre-wrap;
 width: 400px;
+line-height: 22px;
 word-wrap: break-word;
 }
 
 .slide-title{
-padding: 125px 0px 0px 20px;
+padding: 50px 0px 0px 15px;
 }
 
 .slide-content{
-padding: 0px 50px 115px 15px;
+padding: 0px 50px 10px 15px;
 }
 

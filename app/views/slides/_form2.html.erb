@@ -1,5 +1,7 @@
 <%= form_for([@status,slide],:url=>status_slide_path(@status,slide), :method => :put, :html => {:multipart => true}) do |f| %><% if !slide.image? %>
-<div class="fileupload fileupload-new" data-provides="fileupload">
+<c title="Add image" rel="tooltip">
+	<div class="fileupload fileupload-new" data-provides="fileupload">
+	</c>
     <span class="btn btn-file"><span class="fileupload-new"><i class="icon-camera glyphw"></i></span><span class="fileupload-exists">Change</span>
         <%= f.file_field :image, :onchange =>"validateFiles(this);",
 :data => {
