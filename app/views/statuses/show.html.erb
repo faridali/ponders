@@ -37,7 +37,7 @@
   </div>
     <div class="slide-unit">
     <div class="pointer">
-      <div class="slide-title">
+      <div class="slide-title" style="max-width:425px;">
                     <c title="Edit" rel="tooltip">
                      <b>
                   <%=best_in_place slide, :title, :path => [@status, slide] %>
@@ -50,9 +50,8 @@
       </c>
         <%= image_tag slide.image_url(:thumb) if slide.image? %>
           <div class="pointer">
-             <div class="slide-content">
-            </p>
-               <p style="max-width:425px;">
+             <div class="slide-content" style="max-width:425px;">
+               <p>
                   <div id="textarea">
                      <c title="Edit" rel="tooltip">
                              <%= best_in_place slide, :content, :type => "textarea", :classes => "textarea", :path => [@status, slide], :sanitize => "true" %>
