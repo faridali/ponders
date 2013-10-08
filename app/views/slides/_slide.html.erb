@@ -15,7 +15,7 @@
       <div class="slide-title" style="max-width:425px;">
                     <c title="Edit" rel="tooltip">
                      <b>
-                  <%=best_in_place slide, :title, :path => [@status, slide] %>
+                  <%=best_in_place slide, :title, :path => [@status, slide], :nil => "Add title" %>
                   </c>
                 </b>
       </div>
@@ -29,7 +29,7 @@
                <p>
                   <div id="textarea">
                      <c title="Edit" rel="tooltip">
-                             <%= best_in_place slide, :content, :type => "textarea", :classes => "textarea", :path => [@status, slide], :sanitize => "true" %>
+                             <%= best_in_place slide, :content, :type => "textarea", :classes => "textarea", :path => [@status, slide], :sanitize => "true", :nil => "Add text" %>
                     </c>
                   </div>
                </p>

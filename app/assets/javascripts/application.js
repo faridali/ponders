@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require jquery.purr
 //= require jasny-bootstrap
+//= require best_in_place
 //= require_tree .
 //= require turbolinks
 
@@ -105,7 +106,6 @@ function validateFiles(inputFile) {
     $(inputFile).val('');
   };
 }
-
 
 // $(document).delegate('textarea', 'keydown', function(e) {
 //   var keyCode = e.keyCode || e.which;
