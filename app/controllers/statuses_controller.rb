@@ -66,10 +66,10 @@ end
 
     respond_to do |format|
       if @status.save
-        format.html { redirect_to @status, notice: 'Presentation was successfully created. Add slides below.' }
+        format.html { redirect_to @status, notice: 'Deck was successfully created. Add cards below.' }
         format.json { render json: @status, status: :created, location: @status }
       else
-        format.html { render action: "new", alert: 'Contents of title slide must be between 1 - 200 characters long.' }
+        format.html { render action: "new" }
         format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end

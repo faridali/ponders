@@ -1,7 +1,7 @@
 <%= form_for([@status, @status.slides.build], :html => {:multipart => true}, :remote => true) do |f| %>
   <div class="slide-field" >
-  	<%= f.hidden_field :title, placeholder: "Card title...", :style=>"width:300px; margin-left:24%", :value => "Add title here" %>
-    <%= f.hidden_field :content, placeholder: "Card content...", :style=>"width:300px; margin-left:24%", :value => "Add text here" %>
+  	<%= f.hidden_field :title, placeholder: "Card title...", :style=>"width:300px; margin-left:24%", :value => " ", :nil => "Add title" %>
+    <%= f.hidden_field :content, placeholder: "Card content...", :style=>"width:300px; margin-left:24%", :value => " ", :nil => "Add text" %>
     <br>
     <%= f.submit "Add new card", class: "btn btn-info", :style=>"width:300px; margin-left:24%" %>
   </div>

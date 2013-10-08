@@ -36,6 +36,7 @@ GEM
     best_in_place (2.1.0)
       jquery-rails
       rails (~> 3.1)
+    bootstrap-sass (2.1.0.0)
     builder (3.0.4)
     carrierwave (0.5.8)
       activesupport (~> 3.0)
@@ -201,6 +202,7 @@ DEPENDENCIES
   RedCloth
   acts_as_list
   best_in_place
+  bootstrap-sass
   carrierwave
   carrierwave_direct
   coffee-rails (~> 3.2.1)

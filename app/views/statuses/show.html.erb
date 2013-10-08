@@ -5,19 +5,29 @@
 <div class="slide-box">
 <div class="slide-unit">
 <%= form_for(@status,:url=>status_path(@status), :method => :put, :html => {:multipart => true}) do |f| %>
-<p>
-<%= link_to 'x', status_delimg_path(@status), class: :"btn thin", data: { confirm: "Are you sure you want to delete this image?"} if @status.image? %>
-</p>
-<%= image_tag @status.image_url(:thumb) if @status.image? %><br>
 <c title="Edit" rel="tooltip">
 <p>
   <b>
     <div class="pointer">
+            <div class="slide-title" style="max-width:425px;">
       <%= best_in_place @status, :content, :html_attrs => { :maxlength => 200 } %>
+            </div>
     </div>
   </b>
-</p>
 </c>
+<br>
+  <div class="pointer">
+        <c title="Edit" rel="tooltip">
+           <div class="slide-content" style="max-width:425px;">
+                 <%= best_in_place @status, :description, :type => "textarea", :classes => "textarea", :nil => "Add description" %>
+           </div>
+        </c>
+  </div>
+</p>
+<p>
+<%= link_to 'x', status_delimg_path(@status), class: :"btn thin", data: { confirm: "Are you sure you want to delete this image?"} if @status.image? %>
+</p>
+<%= image_tag @status.image_url(:thumb) if @status.image? %>
 </div>
 <% end %>
 	<ul id="slides" data-update-url="<%= sort_slides_url %>">
@@ -40,7 +50,7 @@
       <div class="slide-title" style="max-width:425px;">
                     <c title="Edit" rel="tooltip">
                      <b>
-                  <%=best_in_place slide, :title, :path => [@status, slide] %>
+                  <%=best_in_place slide, :title, :path => [@status, slide], :nil => "Add title" %>
                   </c>
                 </b>
       </div>
@@ -48,13 +58,17 @@
        <c title="Delete image" rel="tooltip">
         <%= link_to 'x', slide_delimg_path(slide), class: :"btn thin", data: { confirm: "Are you sure you want to delete this image?"} if slide.image? %>
       </c>
+      <% if slide.image? %>
+      <div class="slide-image">
         <%= image_tag slide.image_url(:thumb) if slide.image? %>
+      </div>
+      <% end %>
           <div class="pointer">
              <div class="slide-content" style="max-width:425px;">
                <p>
                   <div id="textarea">
                      <c title="Edit" rel="tooltip">
-                             <%= best_in_place slide, :content, :type => "textarea", :classes => "textarea", :path => [@status, slide], :sanitize => "true" %>
+                             <%= best_in_place slide, :content, :type => "textarea", :classes => "textarea", :path => [@status, slide], :sanitize => "true", :nil => "Add text" %>
                     </c>
                   </div>
                </p>

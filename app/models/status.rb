@@ -1,5 +1,5 @@
 class Status < ActiveRecord::Base
-  attr_accessible :content, :user_id, :slides_attributes, :image, :remove_image
+  attr_accessible :content, :description, :user_id, :slides_attributes, :image, :remove_image
   belongs_to :user
 
   validates :content, presence: true,

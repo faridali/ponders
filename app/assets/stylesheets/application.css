@@ -13,6 +13,9 @@
  *= require_tree .
  */
 
+  @media only screen and (max-width: 400px) {
+                    body { font-size:90%;}
+     }
 
 .well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid {
   -moz-box-shadow: none !important;
@@ -141,7 +144,6 @@ display:none;
 
 textarea {
     resize: none;
-    width: 200px;
     }
 
 .best_in_place {
@@ -152,10 +154,15 @@ width: 400px;
 }
 
 .slide-title{
-padding: 70px 0px 0px 15px;
+padding: 80px 0px 0px 25px;
 }
 
 .slide-content{
-padding: 0px 50px 40px 15px;
+padding: 0px 30px 45px 25px;
 }
+
+.slide-image{
+padding: 0px 0px 40px 0px;
+}
+
 
