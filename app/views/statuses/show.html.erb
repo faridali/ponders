@@ -5,16 +5,16 @@
 <div class="slide-box">
 <div class="slide-unit">
 <%= form_for(@status,:url=>status_path(@status), :method => :put, :html => {:multipart => true}) do |f| %>
-<c title="Edit" rel="tooltip">
 <p>
   <b>
     <div class="pointer">
             <div class="presentation-title" style="max-width:425px;">
+      <c title="Edit" rel="tooltip">
       <%= best_in_place @status, :content, :html_attrs => { :maxlength => 200 } %>
+      </c>
             </div>
     </div>
   </b>
-</c>
 <br>
   <div class="pointer">
         <c title="Edit" rel="tooltip">
@@ -49,17 +49,15 @@
     <div class="pointer">
       <div class="slide-title" style="max-width:425px;">
                     <c title="Edit" rel="tooltip">
-                     <b>
                   <%=best_in_place slide, :title, :path => [@status, slide], :nil => "Add title" %>
                   </c>
-                </b>
       </div>
     </div>
-       <c title="Delete image" rel="tooltip">
-        <%= link_to 'x', slide_delimg_path(slide), class: :"btn thin", data: { confirm: "Are you sure you want to delete this image?"} if slide.image? %>
-      </c>
       <% if slide.image? %>
       <div class="slide-image">
+      <c title="Delete image" rel="tooltip">
+        <%= link_to 'x', slide_delimg_path(slide), class: :"btn thin", data: { confirm: "Are you sure you want to delete this image?"} if slide.image? %>
+      </c>
         <%= image_tag slide.image_url(:thumb) if slide.image? %>
       </div>
       <% end %>

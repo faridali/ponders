@@ -155,7 +155,8 @@ width: 400px;
 
 .slide-title{
 padding: 80px 0px 0px 25px;
-font-size: 25px;
+font-size: 18px;
+font-weight: 500;
 }
 
 .slide-content{
@@ -163,12 +164,13 @@ padding: 0px 30px 45px 25px;
 }
 
 .slide-image{
-padding: 0px 0px 40px 0px;
+padding: 0px 0px 0px 0px;
 }
 
 .presentation-title {
 padding: 80px 0px 0px 25px;
-font-size: 30px;
+font-size: 25px;
 line-height: 30px;
+font-weight: 500;
 }
 
